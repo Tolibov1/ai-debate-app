@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Debate Coach</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- HEADER -->
+    <header>
+      <div class="logo">⚔️ AI DEBATE COACH</div>
+      <p class="tagline">Debate the AI. Get better.</p>
+    </header>
+
+    <!-- SETUP SCREEN -->
+    <div id="setupScreen">
+
+      <section>
+        <label>Choose a topic:</label>
+        <select id="topicSelect">
+          <option value="">-- Select a topic --</option>
+          <option value="Social media does more harm than good">Social media does more harm than good</option>
+          <option value="AI will replace most jobs in 10 years">AI will replace most jobs in 10 years</option>
+          <option value="College education is overrated">College education is overrated</option>
+          <option value="Remote work is better than office work">Remote work is better than office work</option>
+          <option value="Space exploration is a waste of money">Space exploration is a waste of money</option>
+        </select>
+      </section>
+
+      <section>
+        <label>Choose time limit:</label>
+        <div class="time-options">
+          <button class="time-btn" onclick="selectTime(1)">1 min</button>
+          <button class="time-btn" onclick="selectTime(5)">5 min</button>
+          <button class="time-btn active" onclick="selectTime(10)">10 min</button>
+          <button class="time-btn" onclick="selectTime(15)">15 min</button>
+        </div>
+      </section>
+
+      <button id="startBtn" onclick="startDebate()">⚡ Start Debate</button>
+
+    </div>
+
+    <!-- DEBATE SCREEN -->
+    <div id="debateScreen" style="display:none;">
+
+      <!-- Timer + Topic bar -->
+      <div class="debate-header">
+        <div class="debate-topic" id="debateTopic"></div>
+        <div class="timer" id="timer">10:00</div>
+      </div>
+
+      <!-- Chat messages -->
+      <div class="chat-box" id="chatBox"></div>
+
+      <!-- Input area -->
+      <div class="input-area">
+        <textarea id="userInput" placeholder="Type your argument..." rows="3"></textarea>
+        <div class="input-buttons">
+          <button id="sendBtn" onclick="sendArgument()">Send ➤</button>
+          <button id="finishBtn" onclick="finishDebate()">🏁 Finish & Review</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- REVIEW SCREEN -->
+    <div id="reviewScreen" style="display:none;">
+
+      <div class="review-title">📊 Debate Review</div>
+
+      <div class="result-card score">
+        <div class="card-label">Overall Score</div>
+        <div class="score-display">
+          <span id="scoreNumber">–</span>
+          <span class="score-max">/10</span>
+        </div>
+        <div class="score-bar-wrap">
+          <div class="score-bar" id="scoreBar"></div>
+        </div>
+      </div>
+
+      <div class="result-card winner">
+        <div class="card-label">🏆 Winner</div>
+        <p id="winnerText"></p>
+      </div>
+
+      <div class="result-card strong">
+        <div class="card-label">💪 Your Strongest Point</div>
+        <p id="strongText"></p>
+      </div>
+
+      <div class="result-card weak">
+        <div class="card-label">⚠️ Your Weakest Point</div>
+        <p id="weakText"></p>
+      </div>
+
+      <div class="result-card improve">
+        <div class="card-label">💡 What to Improve</div>
+        <p id="improveText"></p>
+      </div>
+
+      <button class="try-again-btn" onclick="resetApp()">🔄 Debate Again</button>
+
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

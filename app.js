@@ -6,7 +6,7 @@ const API_KEY = "YOUR_API_KEY_HERE";
 
 const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
 
-/** App state (see CURSOR_PROMPT.md) */
+/** App state */
 let selectedTopic = "";
 let selectedMinutes = 10;
 let selectedDifficulty = 3;
